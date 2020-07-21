@@ -9,29 +9,39 @@ import java.io.IOException;
 import java.lang.ref.Cleaner;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class AcceptSocketTaskTest {
-    private ExecutorService executorService;
-    private ServerSocket serverSocket;
-    private Socket connectServerSocket;
-    private Socket connectClientSocket;
+class StateCheckThread extends Thread {
+    AcceptSocketTask acceptSocketTask;
 
-    @BeforeMethod
-    public void init(){
-        executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+    public StateCheckThread(AcceptSocketTask acceptSocketTask) {
+        this.acceptSocketTask = acceptSocketTask;
     }
 
-    void connectServer() throws IOException {
-        try {
-            executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-            serverSocket = new ServerSocket(5001);
-        } catch (IOException e1) {
-            e1.printStackTrace();
-            closeServer();
-            return;
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                Thread.sleep(2000);
+                System.out.println(this.acceptSocketTask.getClients());
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
         }
+    }
+}
+
+public class AcceptSocketTaskTest {
+    private Server server;
+    private Client client;
+    private Thread thread;
+
+    void connectServer() throws IOException {
+        server = new Server();
+        server.startServer();
+        new StateCheckThread(server.getAcceptSocketTask()).start();
     }
 
     void connectClient() {
@@ -44,24 +54,15 @@ public class AcceptSocketTaskTest {
     }
 
     void closeServer() {
-        if (serverSocket != null && serverSocket.isClosed() != true) {
-            try {
-                serverSocket.close();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-
-        if (executorService != null && executorService.isShutdown() != true) {
-            executorService.shutdown();
-        }
+        server.stopServer();
     }
 
     @Test
-    public void runTest() {
+    public void runTest() throws IOException, InterruptedException {
         connectServer();
         connectClient();
+        Thread.sleep(10000);
         closeClient();
+        closeServer();
     }
 }

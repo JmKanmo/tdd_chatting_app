@@ -16,9 +16,14 @@ import java.util.concurrent.Executors;
 public class Server {
     private ExecutorService executorService;
     private ServerSocket serverSocket;
+    private AcceptSocketTask acceptSocketTask;
 
     public ServerSocket geServertSocket() {
         return this.serverSocket;
+    }
+
+    public AcceptSocketTask getAcceptSocketTask() {
+        return this.acceptSocketTask;
     }
 
     public void startServer() {
@@ -30,7 +35,9 @@ public class Server {
             stopServer();
             return;
         }
-        executorService.submit(new AcceptSocketTask(this));
+
+        this.acceptSocketTask = new AcceptSocketTask(this);
+        executorService.submit(this.acceptSocketTask);
     }
 
     public void stopServer() {
@@ -46,6 +53,7 @@ public class Server {
         if (executorService != null && executorService.isShutdown() != true) {
             executorService.shutdown();
         }
+        this.acceptSocketTask = null;
     }
 
     public Socket acceptClientSocket() throws IOException {

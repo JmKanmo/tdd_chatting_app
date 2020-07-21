@@ -10,13 +10,13 @@ import java.util.List;
 
 public class AcceptSocketTask implements Runnable {
     private Server server;
-    private List<Client> clientList = new ArrayList<>();
+    private List<Socket> clientList = new ArrayList<>();
 
     public AcceptSocketTask(Server server) {
         this.server = server;
     }
 
-    public List<Client> getClients() {
+    public List<Socket> getClients() {
         return clientList;
     }
 
@@ -25,6 +25,7 @@ public class AcceptSocketTask implements Runnable {
         while (true) {
             try {
                 Socket socket = server.acceptClientSocket();
+                this.clientList.add(socket);
                 server.submitTask(new ReceiveDataTask(socket));
             } catch (IOException e) {
                 server.stopServer();
