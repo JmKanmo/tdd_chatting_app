@@ -23,7 +23,7 @@ public class LogControllerTest {
     public static void loggingTest() throws SecurityException, IOException {
         Logger logger = Logger.getLogger(LogControllerTest.class.getName());
         FileHandler fileHandler = new FileHandler(
-                "D:\\chatting_app\\src\\main\\java\\application\\server\\log\\server.log", true);
+                "D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log", true);
         String msg = "안녕하세요 반갑습니다!!";
         fileHandler.setFormatter(new SimpleFormatter());
         fileHandler.setEncoding("UTF-8");
@@ -31,7 +31,7 @@ public class LogControllerTest {
         logger.log(Level.INFO, msg);
 
         List<String> lines = Files
-                .readAllLines(Paths.get("D:\\chatting_app\\src\\main\\java\\application\\server\\log\\server.log"));
+                .readAllLines(Paths.get("D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log"));
 
         String[] splited = lines.get(lines.size() - 1).split(":");
         String checked = splited[splited.length - 1].trim();

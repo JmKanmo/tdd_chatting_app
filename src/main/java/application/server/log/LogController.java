@@ -13,7 +13,7 @@ public class LogController {
 
         try {
             fileHandler = new FileHandler(
-                    "D:\\chatting_app\\src\\main\\java\\application\\server\\log\\server.log", true);
+                    "D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log", true);
             fileHandler.setFormatter(new SimpleFormatter());
             fileHandler.setEncoding("UTF-8");
             logger.addHandler(fileHandler);

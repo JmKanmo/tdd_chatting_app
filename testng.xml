@@ -3,7 +3,8 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="D:/Third">
         <classes>
-            <class name="application.server.task.AcceptSocketTaskTest"></class>
+            <class name="application.server.ServerTest"></class>
+            <class name="application.client.ClientTest"></class>
         </classes>
     </test>
 </suite>

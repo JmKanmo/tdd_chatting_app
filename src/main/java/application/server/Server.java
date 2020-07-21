@@ -35,7 +35,6 @@ public class Server {
             stopServer();
             return;
         }
-
         this.acceptSocketTask = new AcceptSocketTask(this);
         executorService.submit(this.acceptSocketTask);
     }
