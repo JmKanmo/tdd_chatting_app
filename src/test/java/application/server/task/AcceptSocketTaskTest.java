@@ -8,10 +8,13 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class AcceptSocketTaskTest {
     private Server server;
-    private Client client;
+    private List<Client> clientList = new LinkedList<>();
     private Thread thread;
 
     void connectServer() throws IOException {
@@ -22,12 +25,16 @@ public class AcceptSocketTaskTest {
     }
 
     void connectClient() {
-        client = new Client();
+        Client client = new Client();
+        clientList.add(client);
         client.connectSocket();
     }
 
     void closeClient() {
-        client.closeSocket();
+        for (Client client : clientList) {
+            client.closeSocket();
+        }
+        clientList.clear();
     }
 
     void closeServer() {

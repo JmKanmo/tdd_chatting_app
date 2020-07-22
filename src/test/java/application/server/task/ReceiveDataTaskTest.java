@@ -48,12 +48,6 @@ public class ReceiveDataTaskTest {
         clientList.clear();
     }
 
-    void closeClient(int idx) {
-        Client client = clientList.get(idx);
-        client.closeSocket();
-        clientList.remove(idx);
-    }
-
     void stopServer() {
         server.stopServer();
     }
