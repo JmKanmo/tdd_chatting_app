@@ -21,15 +21,8 @@ import java.util.logging.SimpleFormatter;
 public class LogControllerTest {
     @Test
     public static void loggingTest() throws SecurityException, IOException {
-        Logger logger = Logger.getLogger(LogControllerTest.class.getName());
-        FileHandler fileHandler = new FileHandler(
-                "D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log", true);
         String msg = "안녕하세요 반갑습니다!!";
-        fileHandler.setFormatter(new SimpleFormatter());
-        fileHandler.setEncoding("UTF-8");
-        logger.addHandler(fileHandler);
-        logger.log(Level.INFO, msg);
-
+        LogController.getInstance().logging(msg);
         List<String> lines = Files
                 .readAllLines(Paths.get("D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log"));
 

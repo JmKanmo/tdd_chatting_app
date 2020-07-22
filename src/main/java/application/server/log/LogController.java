@@ -1,5 +1,6 @@
 package application.server.log;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -7,23 +8,28 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class LogController {
-    public static void logging(String msg) {
-        FileHandler fileHandler = null;
-        Logger logger = Logger.getLogger(LogController.class.getName());
+    private static LogController self = new LogController();
+    private FileHandler fileHandler;
+    private static Logger logger;
 
+    private LogController() {
         try {
-            fileHandler = new FileHandler(
+            this.fileHandler = new FileHandler(
                     "D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log", true);
+            this.logger = Logger.getLogger(LogController.class.getName());
             fileHandler.setFormatter(new SimpleFormatter());
             fileHandler.setEncoding("UTF-8");
             logger.addHandler(fileHandler);
-            logger.log(Level.INFO, msg);
-        } catch (SecurityException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    public void logging(String msg) {
+        logger.log(Level.INFO, msg);
+    }
+
+    public static LogController getInstance() {
+        return self;
     }
 }

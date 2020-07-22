@@ -2,44 +2,12 @@ package application.server.task;
 
 import application.client.Client;
 import application.server.Server;
-import org.testng.annotations.BeforeMethod;
+import application.statechecker.AcceptSocketTaskStateCheck;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
-import java.net.Socket;
-import java.util.List;
-
-class StateCheckThread extends Thread {
-    AcceptSocketTask acceptSocketTask;
-
-    public StateCheckThread(AcceptSocketTask acceptSocketTask) {
-        this.acceptSocketTask = acceptSocketTask;
-    }
-
-    @Override
-    public void run() {
-        while (true) {
-            if (Thread.interrupted()) break;
-            try {
-                List<Socket> socketList = this.acceptSocketTask.getSocketList();
-                Thread.sleep(2000);
-
-                if (socketList.isEmpty()) {
-                    System.out.println("socket이 비었습니다.");
-                } else {
-                    socketList.forEach(socket -> {
-                        System.out.print(socket.toString() + ", ");
-                    });
-                    System.out.println();
-                }
-            } catch (InterruptedException interruptedException) {
-                interruptedException.printStackTrace();
-            }
-        }
-    }
-}
 
 public class AcceptSocketTaskTest {
     private Server server;
@@ -49,7 +17,7 @@ public class AcceptSocketTaskTest {
     void connectServer() throws IOException {
         server = new Server();
         server.startServer();
-        thread = new StateCheckThread(server.getAcceptSocketTask());
+        thread = new AcceptSocketTaskStateCheck(server.getAcceptSocketTask());
         thread.start();
     }
 

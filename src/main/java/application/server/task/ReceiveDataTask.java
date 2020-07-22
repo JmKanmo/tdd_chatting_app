@@ -27,7 +27,7 @@ public class ReceiveDataTask implements Runnable {
                 }
                 // Client로부터 받아온 데이터 -> 서버의 로그파일에 기록하도록 한다.
                 String data = new String(bArr, 0, readByCnt, "UTF-8");
-                LogController.logging(data);
+                LogController.getInstance().logging(data);
             }
         } catch (IOException e) {
             if (socket.isClosed() != true) {

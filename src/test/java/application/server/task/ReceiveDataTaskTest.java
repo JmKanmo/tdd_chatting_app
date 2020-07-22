@@ -2,42 +2,64 @@ package application.server.task;
 
 import application.client.Client;
 import application.server.Server;
+import application.statechecker.AcceptSocketTaskStateCheck;
 import org.testng.annotations.Test;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
-import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
+import java.util.*;
 
 import static org.testng.Assert.*;
 
 public class ReceiveDataTaskTest {
-    private Client client;
+    private List<Client> clientList = new ArrayList<>();
+    private String[] msgList = {"엑셈입니다", "MFJ데몬팀", "코딩이 재밌습니다.", "여기는어디? 나는 누구?", "치킨이 먹고싶어요"};
     private Server server;
+    private Thread stateCheckThread;
 
-    void clientConnect() {
-        client = new Client();
+    void connectClient() {
+        Client client = new Client();
+        clientList.add(client);
         client.connectSocket();
     }
 
-    void serverStart() {
+    void connectClient(String msg) {
+        Client client = new Client();
+        clientList.add(client);
+        client.connectSocket();
+        sendDataClientToServer(clientList.size() - 1, msg);
+    }
+
+    void startServer() {
         server = new Server();
         server.startServer();
+        stateCheckThread = new AcceptSocketTaskStateCheck(server.getAcceptSocketTask());
+        stateCheckThread.start();
     }
 
-    void clientClose() {
+    @Test
+    void closeClient() {
+        for (Client client : clientList) {
+            client.closeSocket();
+            assertEquals(client.getSocket().isClosed(), true);
+        }
+        clientList.clear();
+    }
+
+    void closeClient(int idx) {
+        Client client = clientList.get(idx);
         client.closeSocket();
+        clientList.remove(idx);
     }
 
-    void sererStop() {
+    void stopServer() {
         server.stopServer();
     }
 
-    void sendDataClientToServer(String msg) {
-        try (BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(client.getSocket().getOutputStream());) {
+    void sendDataClientToServer(int idx, String msg) {
+        try (BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(clientList.get(idx).getSocket().getOutputStream());) {
             bufferedOutputStream.write(msg.getBytes("UTF-8"));
             bufferedOutputStream.flush();
         } catch (IOException e) {
@@ -46,35 +68,87 @@ public class ReceiveDataTaskTest {
     }
 
     @Test
-    public void receiveDataTaskTest() {
-        serverStart();
-        clientConnect();
+    public void checkLogMessageLines() {
+        try {
+            List<String> lines = Files.readAllLines(Paths.get("D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log"));
+            lines = lines.subList(lines.size() - msgList.length * 2, lines.size());
+            List<String> infos = new ArrayList<>();
+
+            for (int i = 0; i < lines.size(); i++) {
+                if (i % 2 != 0) {
+                    String info = lines.get(i).split(":")[1].trim();
+                    infos.add(info);
+                }
+            }
+
+            Arrays.sort(msgList);
+
+            infos.sort(new Comparator<String>() {
+                @Override
+                public int compare(String o1, String o2) {
+                    return o1.compareTo(o2);
+                }
+            });
+
+            for (int i = 0; i < msgList.length; i++) {
+                assertEquals(msgList[i].equals(infos.get(i)), true);
+            }
+
+            infos.clear();
+            lines.clear();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test(enabled = false)
+    public void connectAndStopTest() throws InterruptedException {
+        startServer();
+
+        for (String msg : msgList) {
+            connectClient();
+        }
 
         assertEquals(server.getServerSocket().isBound(), true);
-        assertEquals(client.getSocket().isBound(), true);
 
-        String msg = "안녕하세요. 반갑습니다. 테스트코드입니다";
-        sendDataClientToServer(msg);
+        for (Client client : clientList) {
+            assertEquals(client.getSocket().isBound(), true);
+        }
+
+        Thread.sleep(5000);
+        closeClient();
+        stopServer();
+
+        assertEquals(server.getServerSocket().isClosed(), true);
+        assertEquals(clientList.isEmpty(), true);
+    }
+
+
+    @Test(enabled = true)
+    public void receiveDataTaskTest() {
+        startServer();
+
+        for (String msg : msgList) {
+            connectClient(msg);
+        }
+
+        assertEquals(server.getServerSocket().isBound(), true);
+
+        for (Client client : clientList) {
+            assertEquals(client.getSocket().isBound(), true);
+        }
 
         try {
-            Thread.sleep(3000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        clientClose();
-        sererStop();
+        checkLogMessageLines();
+        closeClient();
+        stopServer();
 
         assertEquals(server.getServerSocket().isClosed(), true);
-        assertEquals(client.getSocket().isClosed(), true);
-
-        try {
-            List<String> lines = Files.readAllLines(Paths.get("D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log"));
-            String[] splited = lines.get(lines.size() - 1).split(":");
-            String checked = splited[splited.length - 1].trim();
-            assertEquals(checked.equals(msg), true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        assertEquals(clientList.isEmpty(), true);
     }
 }
