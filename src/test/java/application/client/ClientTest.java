@@ -1,7 +1,9 @@
 package application.client;
+
 import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
+
 import org.testng.annotations.Test;
 
 public class ClientTest {
@@ -11,12 +13,12 @@ public class ClientTest {
     public void connectSocketTest() throws IOException {
         client = new Client();
         client.connectSocket();
-        assertEquals(client.getSocket().isBound(),true);
+        assertEquals(client.isConnected(), true);
     }
 
     @Test(priority = 3)
     public void closeSocket() throws IOException {
         client.closeSocket();
-        assertEquals(client.getSocket().isClosed(), true);
+        assertEquals(client.isClosed(), true);
     }
 }

@@ -9,12 +9,13 @@ import java.net.Socket;
 
 public class ReceiveDataTask implements Runnable {
     private Socket socket;
+    private BufferedInputStream bufferedInputStream;
 
     public ReceiveDataTask(Socket socket) {
         this.socket = socket;
     }
 
-    private void receiveData(BufferedInputStream bufferedInputStream) throws IOException {
+    private void receiveData() throws IOException {
         byte[] bArr = new byte[1024];
         int readByCnt = bufferedInputStream.read(bArr);
 
@@ -29,10 +30,10 @@ public class ReceiveDataTask implements Runnable {
     @Override
     public void run() {
         try {
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(socket.getInputStream());
+            bufferedInputStream = new BufferedInputStream(socket.getInputStream());
 
             while (true) {
-                receiveData(bufferedInputStream);
+                receiveData();
             }
         } catch (IOException e) {
             if (socket.isClosed() != true) {

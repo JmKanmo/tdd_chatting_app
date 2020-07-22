@@ -13,13 +13,13 @@ public class ServerTest extends Mockito {
     public void stopServerTest() throws IOException {
         server.stopServer();
         assertEquals(server.getExecutorService().isShutdown(), true);
-        assertEquals(server.getServerSocket().isClosed(), true);
+        assertEquals(server.isClosed(), true);
     }
 
     @Test(priority = 1)
     public void startServerTest() throws Exception {
         server = new Server();
         server.startServer();
-        assertEquals(server.getServerSocket().isBound(), true);
+        assertEquals(server.isBound(), true);
     }
 }

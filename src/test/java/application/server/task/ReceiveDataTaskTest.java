@@ -43,7 +43,7 @@ public class ReceiveDataTaskTest {
     void closeClient() {
         for (Client client : clientList) {
             client.closeSocket();
-            assertEquals(client.getSocket().isClosed(), true);
+            assertEquals(client.isClosed(), true);
         }
         clientList.clear();
     }
@@ -103,17 +103,17 @@ public class ReceiveDataTaskTest {
             connectClient();
         }
 
-        assertEquals(server.getServerSocket().isBound(), true);
+        assertEquals(server.isBound(), true);
 
         for (Client client : clientList) {
-            assertEquals(client.getSocket().isBound(), true);
+            assertEquals(client.isConnected(), true);
         }
 
         Thread.sleep(5000);
         closeClient();
         stopServer();
 
-        assertEquals(server.getServerSocket().isClosed(), true);
+        assertEquals(server.isClosed(), true);
         assertEquals(clientList.isEmpty(), true);
     }
 
@@ -126,10 +126,10 @@ public class ReceiveDataTaskTest {
             connectClient(msg);
         }
 
-        assertEquals(server.getServerSocket().isBound(), true);
+        assertEquals(server.isBound(), true);
 
         for (Client client : clientList) {
-            assertEquals(client.getSocket().isBound(), true);
+            assertEquals(client.isConnected(), true);
         }
 
         try {
@@ -142,7 +142,7 @@ public class ReceiveDataTaskTest {
         closeClient();
         stopServer();
 
-        assertEquals(server.getServerSocket().isClosed(), true);
+        assertEquals(server.isClosed(), true);
         assertEquals(clientList.isEmpty(), true);
     }
 }

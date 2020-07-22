@@ -52,7 +52,7 @@ public class AcceptSocketTaskTest {
         Thread.sleep(6000);
 
         // closeServer -> run method throw new IOException 발생 -> stopServer 호출여부 확인
-        assertEquals(server.getServerSocket().isClosed(), true);
-        assertEquals(server.getExecutorService().isShutdown(), true);
+        assertEquals(server.isClosed(), true);
+        assertEquals(server.isShutDown(), true);
     }
 }

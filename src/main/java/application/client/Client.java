@@ -33,6 +33,14 @@ public class Client {
         }
     }
 
+    public boolean isConnected() {
+        return socket.isConnected();
+    }
+
+    public boolean isClosed() {
+        return socket.isClosed();
+    }
+
     public Socket getSocket() {
         return socket;
     }

@@ -50,6 +50,14 @@ public class SendDataTask implements Runnable {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (socket != null && !socket.isClosed()) {
+                try {
+                    socket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

@@ -70,4 +70,16 @@ public class Server {
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
+
+    public boolean isBound() {
+        return serverSocket.isBound();
+    }
+
+    public boolean isClosed() {
+        return serverSocket.isClosed();
+    }
+
+    public boolean isShutDown() {
+        return executorService.isShutdown();
+    }
 }

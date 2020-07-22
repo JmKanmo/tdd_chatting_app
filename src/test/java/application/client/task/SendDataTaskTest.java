@@ -9,17 +9,19 @@ import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.testng.Assert.*;
 
 public class SendDataTaskTest {
-    private Client client;
+    private List<Client> clientList = new ArrayList<>();
     private Server server;
     private Thread thread;
 
     public void connectClient() {
-        client = new Client();
+        Client client = new Client();
+        clientList.add(client);
         client.connectSocket();
     }
 
@@ -30,17 +32,15 @@ public class SendDataTaskTest {
         thread.start();
     }
 
-    @Test
-    public void sendDataTaskTest() throws InterruptedException, IOException {
-        client.sendData(3);
-        List<String> lines = Files.readAllLines(Paths.get("D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log"));
-        String lastLine = lines.get(lines.size() - 1).split(":")[1].trim();
-        assertEquals(lastLine.equals("임시데이터 입니다."), true);
-        lines.clear();
+    public void sendDataTaskTest(int idx) throws InterruptedException, IOException {
+        clientList.get(idx).sendData(3);
     }
 
     public void closeClientSocket() {
-        client.closeSocket();
+        for (Client client : clientList) {
+            client.closeSocket();
+        }
+        clientList.clear();
     }
 
     public void stopServer() {
@@ -51,6 +51,8 @@ public class SendDataTaskTest {
     public void sendDataTest() throws IOException, InterruptedException {
         startServer();
         connectClient();
+        connectClient();
+        connectClient();
 
         try {
             Thread.sleep(500);
@@ -58,21 +60,32 @@ public class SendDataTaskTest {
             interruptedException.printStackTrace();
         }
 
-        assertEquals(server.getServerSocket().isBound(), true);
-        assertEquals(client.getSocket().isBound(), true);
+        assertEquals(server.isBound(), true);
 
-        sendDataTaskTest();
-
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException interruptedException) {
-            interruptedException.printStackTrace();
+        for (Client client : clientList) {
+            assertEquals(client.isConnected(), true);
         }
+
+        for (int i = 0; i < clientList.size(); i++) {
+            sendDataTaskTest(i);
+        }
+
+        Thread.sleep(2000);
+
+        List<String> lines = Files.readAllLines(Paths.get("D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log"));
+        String lastLine = lines.get(lines.size() - 1).split(":")[1].trim();
+        assertEquals(lastLine.equals("임시데이터 입니다."), true);
+        lines.clear();
 
         closeClientSocket();
         stopServer();
-        Thread.sleep(2000);
-        assertEquals(server.getServerSocket().isClosed(), true);
-        assertEquals(client.getSocket().isClosed(), true);
+
+        Thread.sleep(1500);
+
+        assertEquals(server.isClosed(), true);
+
+        for (Client client : clientList) {
+            assertEquals(client.isConnected(), true);
+        }
     }
 }
