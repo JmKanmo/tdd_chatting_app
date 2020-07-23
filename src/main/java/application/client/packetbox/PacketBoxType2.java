@@ -6,10 +6,12 @@ import java.util.Stack;
 public class PacketBoxType2 extends PacketBox {
     private int randomNumber;
     private String binaryString;
+    private static final int RANDOM_MIN = 0;
+    private static final int RANDOM_MAX = 999;
 
-    public PacketBoxType2(Socket socket, int min, int max) {
+    public PacketBoxType2(Socket socket) {
         super(socket);
-        randomNumber = super.createRandomNumber(min, max);
+        randomNumber = super.createRandomNumber(RANDOM_MIN, RANDOM_MAX);
         binaryString = getBinaryNumber(randomNumber);
     }
 

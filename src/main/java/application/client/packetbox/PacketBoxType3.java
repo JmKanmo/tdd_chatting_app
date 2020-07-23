@@ -21,25 +21,29 @@ public class PacketBoxType3 extends PacketBox {
 
     private Map<String, String> headerInfo = new HashMap<>();
 
-    public PacketBoxType3(Socket socket) throws Exception {
+    public PacketBoxType3(Socket socket) {
         super(socket);
         randomNumber = super.createRandomNumber(0, urls.length - 1);
-        url = new URL(urls[randomNumber]);
         setHeaderInfo();
     }
 
-    public void setHeaderInfo() throws Exception {
-        URLConnection urlCon = url.openConnection();
+    public void setHeaderInfo() {
+        try {
+            url = new URL(urls[randomNumber]);
+            URLConnection urlCon = url.openConnection();
+            this.headerInfo.put("urlCon.getContentType", urlCon.getContentType());
+            this.headerInfo.put("urlCon.getContent", urlCon.getContent().toString());
+            this.headerInfo.put("urlCon.getContentEncoding", urlCon.getContentEncoding());
 
-        this.headerInfo.put("urlCon.getContentType", urlCon.getContentType());
-        this.headerInfo.put("urlCon.getContent", urlCon.getContent().toString());
-        this.headerInfo.put("urlCon.getContentEncoding", urlCon.getContentEncoding());
+            Map<String, List<String>> map = urlCon.getHeaderFields();
 
-        Map<String, List<String>> map = urlCon.getHeaderFields();
-
-        map.forEach((key, value) -> {
-            this.headerInfo.put(key, value.toString());
-        });
+            map.forEach((key, value) -> {
+                this.headerInfo.put(key, value.toString());
+            });
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            headerInfo.clear();
+        }
     }
 
     @Override

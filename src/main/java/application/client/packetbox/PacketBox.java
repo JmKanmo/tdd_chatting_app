@@ -1,6 +1,7 @@
 package application.client.packetbox;
 
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
@@ -17,8 +18,13 @@ public class PacketBox {
     public void generateData() {
         dataMap.put("localPortNumber", socket.getLocalPort());
         dataMap.put("destPortNumber", socket.getPort());
-        dataMap.put("hostName", socket.getLocalAddress().getHostName());
-        dataMap.put("hostIP", socket.getLocalAddress().getHostAddress());
+        try {
+            dataMap.put("hostName", socket.getLocalAddress().getLocalHost().getHostName());
+            dataMap.put("hostIP", socket.getLocalAddress().getHostAddress());
+        } catch (UnknownHostException e) {
+            dataMap.put("hostName", "unKnown");
+            dataMap.put("hostIP", "unKnown");
+        }
     }
 
     protected String getPublicDataString() {
@@ -26,7 +32,7 @@ public class PacketBox {
                 dataMap.get("hostName"), dataMap.get("hostIP"));
     }
 
-    protected int createRandomNumber(int min, int max) {
+    public static int createRandomNumber(int min, int max) {
         return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
 

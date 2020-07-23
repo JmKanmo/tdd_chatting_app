@@ -36,7 +36,7 @@ public class PacketBoxType2Test {
     public void packetBoxType2Test() {
         int min = 5;
         int max = 10;
-        PacketBoxType2 packetBox = new PacketBoxType2(client.getSocket(), min, max);
+        PacketBoxType2 packetBox = new PacketBoxType2(client.getSocket());
         Map<String, Object> dataMap = packetBox.getDataMap();
         Socket socket = client.getSocket();
 
@@ -47,7 +47,7 @@ public class PacketBoxType2Test {
         assertNotEquals(packetBox.getRandomNumber(), 0);
         assertNotNull(packetBox.getBinaryString());
         int randomNumber = packetBox.getRandomNumber();
-        assertEquals(randomNumber >= 5 && randomNumber <= 10, true);
+        assertEquals(randomNumber >= 0 && randomNumber <= 999, true);
         System.out.println(packetBox.toString());
     }
 

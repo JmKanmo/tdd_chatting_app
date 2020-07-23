@@ -21,10 +21,12 @@ public class SendDataTask implements Runnable {
                 if (socket.isClosed()) {
                     throw new IOException();
                 }
-                bufferedOutputStream.write("임시데이터 입니다.".getBytes("UTF-8"));
+
+                String dummyData = packetDataTask.getDummyData();
+                bufferedOutputStream.write(dummyData.getBytes("UTF-8"));
                 bufferedOutputStream.flush();
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(1500);
                 } catch (InterruptedException interruptedException) {
                     interruptedException.printStackTrace();
                 }
