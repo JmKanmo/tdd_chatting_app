@@ -18,13 +18,17 @@ public class Server {
     private ServerSocket serverSocket;
     private AcceptSocketTask acceptSocketTask;
 
-    public void startServer(int portNumber) {
+    public boolean startServer(int portNumber) {
         try {
             serverSocket = new ServerSocket(portNumber);
         } catch (IOException e1) {
             e1.printStackTrace();
-            return;
+            return false;
         }
+        return true;
+    }
+
+    public void startAcceptTask() {
         acceptSocketTask = new AcceptSocketTask(this);
         executorService.submit(acceptSocketTask);
     }
@@ -42,7 +46,6 @@ public class Server {
         if (executorService != null && executorService.isShutdown() != true) {
             executorService.shutdown();
         }
-        acceptSocketTask = null;
     }
 
     public Socket acceptClientSocket() throws IOException {
@@ -80,5 +83,4 @@ public class Server {
     public AcceptSocketTask getAcceptSocketTask() {
         return acceptSocketTask;
     }
-
 }

@@ -20,6 +20,7 @@ public class AcceptSocketTaskTest {
     void connectServer() throws IOException {
         server = new Server();
         server.startServer(5001);
+        server.startAcceptTask();
         thread = new AcceptSocketTaskStateCheck(server.getAcceptSocketTask());
         thread.start();
     }

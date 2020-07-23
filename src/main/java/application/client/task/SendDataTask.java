@@ -1,29 +1,26 @@
 package application.client.task;
 
-import application.client.Client;
-
-import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
 
 public class SendDataTask implements Runnable {
     private Socket socket;
-    private DummyDataTask dummyDataTask;
+    private PacketDataTask packetDataTask;
 
-    public SendDataTask(Socket socket, int number) {
+    public SendDataTask(Socket socket) {
         this.socket = socket;
-        this.dummyDataTask = new DummyDataTask(number);
+        this.packetDataTask = new PacketDataTask(socket);
     }
 
     @Override
     public void run() {
         try (BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(socket.getOutputStream());) {
             while (true) {
+                if (socket.isClosed()) {
+                    throw new IOException();
+                }
                 bufferedOutputStream.write("임시데이터 입니다.".getBytes("UTF-8"));
                 bufferedOutputStream.flush();
                 try {
@@ -33,7 +30,7 @@ public class SendDataTask implements Runnable {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("소켓이 닫혔습니다.");
         }
     }
 
@@ -41,7 +38,7 @@ public class SendDataTask implements Runnable {
         return socket;
     }
 
-    public DummyDataTask getDummyDataTask() {
-        return dummyDataTask;
+    public PacketDataTask getDummyDataTask() {
+        return packetDataTask;
     }
 }

@@ -4,14 +4,13 @@ import application.client.Client;
 import application.server.Server;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
 import java.net.Socket;
 import java.util.Map;
 import java.util.Objects;
 
 import static org.testng.Assert.*;
 
-public class PacketBoxTest {
+public class PacketBoxType2Test {
     private Client client;
     private Server server;
 
@@ -33,29 +32,23 @@ public class PacketBoxTest {
         server.stopServer();
     }
 
-    @Test(enabled = false)
-    public void packetBoxTest() {
-        PacketBox packetBox = new PacketBox(client.getSocket());
+    @Test
+    public void packetBoxType2Test() {
+        int min = 5;
+        int max = 10;
+        PacketBoxType2 packetBox = new PacketBoxType2(client.getSocket(), min, max);
         Map<String, Object> dataMap = packetBox.getDataMap();
         Socket socket = client.getSocket();
-
-        for (int i = 1; i <= 5000; i++) {
-            int min = 10, max = 55;
-            int randomNumber = packetBox.createRandomNumber(min, max);
-            assertEquals(randomNumber >= min && randomNumber <= max, true);
-        }
 
         assertEquals(Objects.equals(socket.getLocalPort(), dataMap.get("localPortNumber")), true);
         assertEquals(Objects.equals(socket.getPort(), dataMap.get("destPortNumber")), true);
         assertEquals(Objects.equals(socket.getLocalAddress().getHostName(), dataMap.get("hostName")), true);
         assertEquals(Objects.equals(socket.getLocalAddress().getHostAddress(), dataMap.get("hostIP")), true);
-    }
-
-    @Test(enabled = true)
-    public void packetBoxPolymorphismTest(){
-        PacketBox packetBox = new PacketBoxType1(client.getSocket());
-        assertNotNull(packetBox.toString());
-        assertNotEquals(packetBox.toString(),new PacketBox(client.getSocket()).toString());
+        assertNotEquals(packetBox.getRandomNumber(), 0);
+        assertNotNull(packetBox.getBinaryString());
+        int randomNumber = packetBox.getRandomNumber();
+        assertEquals(randomNumber >= 5 && randomNumber <= 10, true);
+        System.out.println(packetBox.toString());
     }
 
     @Test
@@ -72,7 +65,8 @@ public class PacketBoxTest {
         assertEquals(server.isBound(), true);
         assertEquals(client.isConnected(), true);
 
-        packetBoxPolymorphismTest();
+
+        packetBoxType2Test();
 
         try {
             Thread.sleep(1000);

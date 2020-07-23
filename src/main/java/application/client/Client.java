@@ -9,16 +9,18 @@ public class Client {
     private Socket socket;
     private Thread thread;
 
-    public void connectSocket(int portNumber) {
+    public boolean connectSocket(int portNumber) {
         try {
             socket = new Socket("localhost", portNumber);
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
-    public void sendData(int number) {
-        this.thread = new Thread(new SendDataTask(socket, number));
+    public void startSendDataTask() {
+        this.thread = new Thread(new SendDataTask(socket));
         thread.start();
     }
 

@@ -28,12 +28,13 @@ public class SendDataTaskTest {
     public void startServer() {
         server = new Server();
         server.startServer(5001);
+        server.startAcceptTask();
         thread = new AcceptSocketTaskStateCheck(server.getAcceptSocketTask());
         thread.start();
     }
 
     public void sendDataTaskTest(int idx) throws InterruptedException, IOException {
-        clientList.get(idx).sendData(3);
+        clientList.get(idx).startSendDataTask();
     }
 
     public void closeClientSocket() {

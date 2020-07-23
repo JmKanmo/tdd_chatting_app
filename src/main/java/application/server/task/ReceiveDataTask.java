@@ -37,7 +37,7 @@ public class ReceiveDataTask implements Runnable {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("클라이언트와의 데이터교환 없음");
         }
     }
 }

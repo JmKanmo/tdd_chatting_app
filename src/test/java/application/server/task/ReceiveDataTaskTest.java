@@ -35,6 +35,7 @@ public class ReceiveDataTaskTest {
     void startServer() {
         server = new Server();
         server.startServer(5001);
+        server.startAcceptTask();
         stateCheckThread = new AcceptSocketTaskStateCheck(server.getAcceptSocketTask());
         stateCheckThread.start();
     }
@@ -95,7 +96,7 @@ public class ReceiveDataTaskTest {
         }
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void connectAndStopTest() throws InterruptedException {
         startServer();
 
@@ -118,7 +119,7 @@ public class ReceiveDataTaskTest {
     }
 
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void receiveDataTaskTest() {
         startServer();
 
