@@ -1,21 +1,24 @@
 package application.client.packetbox;
 
-public class PacketBox {
-    protected int destPortNumber;
-    protected int localPortNumber;
-    protected String hostName;
-    protected String hostIP;
+import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
-    public PacketBox(int destPortNumber, int localPortNumber, String hostName, String hostIP) {
-        this.destPortNumber = destPortNumber;
-        this.localPortNumber = localPortNumber;
-        this.hostName = hostName;
-        this.hostIP = hostIP;
+public class PacketBox {
+    private Socket socket;
+    private Map<String, String> dataMap = new HashMap<>();
+
+    public PacketBox(Socket socket) {
+        this.socket = socket;
+    }
+
+    public void generateData(){
+
     }
 
     @Override
     public String toString() {
-        return String.format("PacketBox [localPortNumber:%d, destPortNumber:%d, hostName:%s, hostIP:%s]", localPortNumber, destPortNumber, hostName, hostIP);
+        return String.format("PacketBox [localPortNumber:%d, destPortNumber:%d, hostName:%s, hostIP:%s]", "");
     }
 
     protected int getRandomNumber(int min, int max) {

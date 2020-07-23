@@ -12,7 +12,7 @@ public class ClientTest {
     @Test(priority = 2)
     public void connectSocketTest() throws IOException {
         client = new Client();
-        client.connectSocket();
+        client.connectSocket(5001);
         assertEquals(client.isConnected(), true);
     }
 

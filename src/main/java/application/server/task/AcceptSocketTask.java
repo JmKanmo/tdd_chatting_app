@@ -25,7 +25,7 @@ public class AcceptSocketTask implements Runnable {
         while (true) {
             try {
                 Socket socket = server.acceptClientSocket();
-                this.socketList.add(socket);
+                socketList.add(socket);
                 server.submitTask(new ReceiveDataTask(socket));
             } catch (IOException e) {
                 server.stopServer();

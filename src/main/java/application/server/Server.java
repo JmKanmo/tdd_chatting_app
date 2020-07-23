@@ -14,29 +14,19 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Server {
-    private ExecutorService executorService;
+    private ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
     private ServerSocket serverSocket;
     private AcceptSocketTask acceptSocketTask;
 
-    public ServerSocket geServertSocket() {
-        return this.serverSocket;
-    }
-
-    public AcceptSocketTask getAcceptSocketTask() {
-        return this.acceptSocketTask;
-    }
-
-    public void startServer() {
+    public void startServer(int portNumber) {
         try {
-            executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-            serverSocket = new ServerSocket(5001);
+            serverSocket = new ServerSocket(portNumber);
         } catch (IOException e1) {
             e1.printStackTrace();
-            stopServer();
             return;
         }
-        this.acceptSocketTask = new AcceptSocketTask(this);
-        executorService.submit(this.acceptSocketTask);
+        acceptSocketTask = new AcceptSocketTask(this);
+        executorService.submit(acceptSocketTask);
     }
 
     public void stopServer() {
@@ -52,7 +42,7 @@ public class Server {
         if (executorService != null && executorService.isShutdown() != true) {
             executorService.shutdown();
         }
-        this.acceptSocketTask = null;
+        acceptSocketTask = null;
     }
 
     public Socket acceptClientSocket() throws IOException {
@@ -60,7 +50,7 @@ public class Server {
     }
 
     public void submitTask(ReceiveDataTask receiveTask) {
-        this.executorService.submit(receiveTask);
+        executorService.submit(receiveTask);
     }
 
     public ExecutorService getExecutorService() {
@@ -82,4 +72,13 @@ public class Server {
     public boolean isShutDown() {
         return executorService.isShutdown();
     }
+
+    public ServerSocket geServertSocket() {
+        return serverSocket;
+    }
+
+    public AcceptSocketTask getAcceptSocketTask() {
+        return acceptSocketTask;
+    }
+
 }

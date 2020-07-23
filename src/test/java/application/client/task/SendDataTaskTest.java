@@ -22,12 +22,12 @@ public class SendDataTaskTest {
     public void connectClient() {
         Client client = new Client();
         clientList.add(client);
-        client.connectSocket();
+        client.connectSocket(5001);
     }
 
     public void startServer() {
         server = new Server();
-        server.startServer();
+        server.startServer(5001);
         thread = new AcceptSocketTaskStateCheck(server.getAcceptSocketTask());
         thread.start();
     }

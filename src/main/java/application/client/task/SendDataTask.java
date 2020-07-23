@@ -14,50 +14,34 @@ import java.util.List;
 public class SendDataTask implements Runnable {
     private Socket socket;
     private DummyDataTask dummyDataTask;
-    private BufferedOutputStream bufferedOutputStream;
 
     public SendDataTask(Socket socket, int number) {
         this.socket = socket;
         this.dummyDataTask = new DummyDataTask(number);
     }
 
-    private void sendData() throws Exception {
-        try {
-            bufferedOutputStream.write("임시데이터 입니다.".getBytes("UTF-8"));
-            bufferedOutputStream.flush();
-        } catch (Exception exception) {
-            throw exception;
+    @Override
+    public void run() {
+        try (BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(socket.getOutputStream());) {
+            while (true) {
+                bufferedOutputStream.write("임시데이터 입니다.".getBytes("UTF-8"));
+                bufferedOutputStream.flush();
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException interruptedException) {
+                    interruptedException.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    @Override
-    public void run() {
-        try {
-            bufferedOutputStream = new BufferedOutputStream(socket.getOutputStream());
+    public Socket getSocket() {
+        return socket;
+    }
 
-            while (true) {
-                try {
-                    sendData();
-                    try {
-                        Thread.sleep(300);
-                    } catch (InterruptedException interruptedException) {
-                        interruptedException.printStackTrace();
-                    }
-                } catch (Exception exception) {
-                    exception.printStackTrace();
-                    break;
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (socket != null && !socket.isClosed()) {
-                try {
-                    socket.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+    public DummyDataTask getDummyDataTask() {
+        return dummyDataTask;
     }
 }

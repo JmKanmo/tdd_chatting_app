@@ -22,19 +22,19 @@ public class ReceiveDataTaskTest {
     void connectClient() {
         Client client = new Client();
         clientList.add(client);
-        client.connectSocket();
+        client.connectSocket(5001);
     }
 
     void connectClient(String msg) {
         Client client = new Client();
         clientList.add(client);
-        client.connectSocket();
+        client.connectSocket(5001);
         sendDataClientToServer(clientList.size() - 1, msg);
     }
 
     void startServer() {
         server = new Server();
-        server.startServer();
+        server.startServer(5001);
         stateCheckThread = new AcceptSocketTaskStateCheck(server.getAcceptSocketTask());
         stateCheckThread.start();
     }
@@ -95,7 +95,7 @@ public class ReceiveDataTaskTest {
         }
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void connectAndStopTest() throws InterruptedException {
         startServer();
 
@@ -118,7 +118,7 @@ public class ReceiveDataTaskTest {
     }
 
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void receiveDataTaskTest() {
         startServer();
 

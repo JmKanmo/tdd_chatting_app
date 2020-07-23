@@ -19,7 +19,7 @@ public class AcceptSocketTaskTest {
 
     void connectServer() throws IOException {
         server = new Server();
-        server.startServer();
+        server.startServer(5001);
         thread = new AcceptSocketTaskStateCheck(server.getAcceptSocketTask());
         thread.start();
     }
@@ -27,7 +27,7 @@ public class AcceptSocketTaskTest {
     void connectClient() {
         Client client = new Client();
         clientList.add(client);
-        client.connectSocket();
+        client.connectSocket(5001);
     }
 
     void closeClient() {

@@ -9,11 +9,10 @@ public class Client {
     private Socket socket;
     private Thread thread;
 
-    public void connectSocket() {
+    public void connectSocket(int portNumber) {
         try {
-            socket = new Socket("localhost", 5001);
+            socket = new Socket("localhost", portNumber);
         } catch (IOException e) {
-            closeSocket();
             e.printStackTrace();
         }
     }

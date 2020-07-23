@@ -19,7 +19,7 @@ public class ServerTest extends Mockito {
     @Test(priority = 1)
     public void startServerTest() throws Exception {
         server = new Server();
-        server.startServer();
+        server.startServer(5001);
         assertEquals(server.isBound(), true);
     }
 }
