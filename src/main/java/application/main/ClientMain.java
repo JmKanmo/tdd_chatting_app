@@ -31,7 +31,7 @@ class ClientController extends Thread {
         while (!isStop) {
             if (!isOn) {
                 int ret = client.connectSocket(portNumber);
-                System.out.println(ret);
+
                 if (ret > 0) {
                     isOn = true;
                     System.out.println("서버로의 데이터 전송을 시작합니다.");

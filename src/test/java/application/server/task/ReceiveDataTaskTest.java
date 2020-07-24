@@ -40,15 +40,6 @@ public class ReceiveDataTaskTest {
         stateCheckThread.start();
     }
 
-    @Test
-    void closeClient() {
-        for (Client client : clientList) {
-            client.closeSocket();
-            assertEquals(client.isClosed(), true);
-        }
-        clientList.clear();
-    }
-
     void stopServer() {
         server.stopServer();
     }
@@ -60,6 +51,15 @@ public class ReceiveDataTaskTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    void closeClient() {
+        for (Client client : clientList) {
+            client.closeSocket();
+            assertEquals(client.isClosed(), true);
+        }
+        clientList.clear();
     }
 
     @Test
@@ -134,7 +134,7 @@ public class ReceiveDataTaskTest {
         }
 
         try {
-            Thread.sleep(10000);
+            Thread.sleep(2500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -143,7 +143,7 @@ public class ReceiveDataTaskTest {
         closeClient();
 
         try {
-            Thread.sleep(10000);
+            Thread.sleep(2500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
