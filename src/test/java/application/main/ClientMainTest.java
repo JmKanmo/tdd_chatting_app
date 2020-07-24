@@ -9,6 +9,6 @@ import static org.testng.Assert.*;
 public class ClientMainTest {
     @Test
     public void clientMainTest() {
-        assertEquals(5,3);
+
     }
 }

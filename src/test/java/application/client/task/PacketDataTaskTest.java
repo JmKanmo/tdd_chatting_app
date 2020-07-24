@@ -31,7 +31,6 @@ public class PacketDataTaskTest {
         server.stopServer();
     }
 
-    @Test
     public void packetDataTaskTest() {
         PacketDataTask packetDataTask = new PacketDataTask(client.getSocket());
         String data = packetDataTask.getDummyData();

@@ -53,7 +53,6 @@ public class ReceiveDataTaskTest {
         }
     }
 
-    @Test
     void closeClient() {
         for (Client client : clientList) {
             client.closeSocket();
@@ -62,7 +61,6 @@ public class ReceiveDataTaskTest {
         clientList.clear();
     }
 
-    @Test
     public void checkLogMessageLines() {
         try {
             List<String> lines = Files.readAllLines(Paths.get("D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log"));

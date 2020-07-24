@@ -32,7 +32,6 @@ public class PacketBoxType3Test {
         server.stopServer();
     }
 
-    @Test
     public void packetBoxType3Test() throws Exception {
         PacketBoxType3 packetBox = new PacketBoxType3(client.getSocket());
         Map<String, Object> dataMap = packetBox.getDataMap();
@@ -40,7 +39,7 @@ public class PacketBoxType3Test {
 
         assertEquals(Objects.equals(socket.getLocalPort(), dataMap.get("localPortNumber")), true);
         assertEquals(Objects.equals(socket.getPort(), dataMap.get("destPortNumber")), true);
-        assertEquals(Objects.equals(socket.getLocalAddress().getHostName(), dataMap.get("hostName")), true);
+        assertEquals(Objects.equals(socket.getLocalAddress().getLocalHost().getHostName(), dataMap.get("hostName")), true);
         assertEquals(Objects.equals(socket.getLocalAddress().getHostAddress(), dataMap.get("hostIP")), true);
 
         assertNotEquals(packetBox.getUrl(), null);

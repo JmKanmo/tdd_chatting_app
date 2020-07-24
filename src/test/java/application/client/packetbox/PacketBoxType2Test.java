@@ -32,7 +32,6 @@ public class PacketBoxType2Test {
         server.stopServer();
     }
 
-    @Test
     public void packetBoxType2Test() {
         int min = 5;
         int max = 10;
