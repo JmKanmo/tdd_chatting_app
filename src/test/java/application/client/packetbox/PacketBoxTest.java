@@ -51,7 +51,6 @@ public class PacketBoxTest {
         assertEquals(Objects.equals(socket.getLocalAddress().getHostAddress(), dataMap.get("hostIP")), true);
     }
 
-    @Test(enabled = true)
     public void packetBoxPolymorphismTest(){
         PacketBox packetBox = new PacketBoxType1(client.getSocket());
         assertNotNull(packetBox.toString());

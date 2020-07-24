@@ -39,7 +39,7 @@ public class PacketBoxType1Test {
         Socket socket = client.getSocket();
         assertEquals(Objects.equals(socket.getLocalPort(), dataMap.get("localPortNumber")), true);
         assertEquals(Objects.equals(socket.getPort(), dataMap.get("destPortNumber")), true);
-        assertEquals(Objects.equals(socket.getLocalAddress().getHostName(), dataMap.get("hostName")), true);
+        assertEquals(Objects.equals(socket.getLocalAddress()    .getHostName(), dataMap.get("hostName")), true);
         assertEquals(Objects.equals(socket.getLocalAddress().getHostAddress(), dataMap.get("hostIP")), true);
         assertNotNull(packetBox.getUuid());
     }
