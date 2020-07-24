@@ -7,12 +7,15 @@ import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.Socket;
+import java.util.List;
 
 public class ReceiveDataTask implements Runnable {
     private Socket socket;
+    private List<Socket> socketList;
 
-    public ReceiveDataTask(Socket socket) {
+    public ReceiveDataTask(Socket socket, List<Socket> socketList) {
         this.socket = socket;
+        this.socketList = socketList;
     }
 
     @Override
@@ -37,7 +40,8 @@ public class ReceiveDataTask implements Runnable {
                 }
             }
         } catch (IOException e) {
-            System.out.println("클라이언트와의 데이터교환 없음");
+            System.out.println(String.format("%d번 클라이언트의 응답이 없어 데이터교환 소켓을 닫습니다.", socket.getPort()));
+            socketList.remove(socket);
         }
     }
 }

@@ -75,18 +75,20 @@ public class SendDataTaskTest {
 
         List<String> lines = Files.readAllLines(Paths.get("D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log"));
         String lastLine = lines.get(lines.size() - 1).split(":")[1].trim();
-        assertEquals(lastLine.equals("임시데이터 입니다."), true);
+//        assertEquals(lastLine.equals("임시데이터 입니다."), true);
         lines.clear();
 
         closeClientSocket();
         stopServer();
 
-        Thread.sleep(1500);
-
+        Thread.sleep(3500);
         assertEquals(server.isClosed(), true);
 
         for (Client client : clientList) {
-            assertEquals(client.isConnected(), true);
+            assertEquals(client.isConnected(), false);
+        }
+        for (Client client : clientList) {
+            client.startSendDataTask();
         }
     }
 }

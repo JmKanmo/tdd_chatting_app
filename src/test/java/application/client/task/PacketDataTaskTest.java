@@ -35,6 +35,7 @@ public class PacketDataTaskTest {
     public void packetDataTaskTest() {
         PacketDataTask packetDataTask = new PacketDataTask(client.getSocket());
         String data = packetDataTask.getDummyData();
+        System.out.println(data + "," + client.getSocket().toString());
         assertNotNull(data);
     }
 
@@ -57,8 +58,8 @@ public class PacketDataTaskTest {
         assertEquals(server.isBound(), true);
         assertEquals(client.isConnected(), true);
 
-//        packetDataTaskTest();
-        simulationTest();
+        packetDataTaskTest();
+//        simulationTest();
 
         try {
             Thread.sleep(6000);
