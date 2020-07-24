@@ -3,20 +3,24 @@ package application.client;
 import application.client.task.SendDataTask;
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.Socket;
 
 public class Client {
     private Socket socket;
     private Thread thread;
 
-    public boolean connectSocket(int portNumber) {
+    public int connectSocket(int portNumber) {
         try {
             socket = new Socket("localhost", portNumber);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
+        } catch (ConnectException connectException) {
+            connectException.printStackTrace();
+            return -1;
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return 0;
         }
-        return true;
+        return 1;
     }
 
     public void startSendDataTask() {

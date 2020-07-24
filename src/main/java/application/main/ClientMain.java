@@ -28,23 +28,30 @@ class ClientController extends Thread {
 
     @Override
     public void run() {
-        while (!isStop && !isOn) {
-            if (client.connectSocket(portNumber)) {
-                System.out.println("서버와 연결되었습니다.");
-                System.out.println("서버로의 데이터 전송을 시작합니다.");
-                isOn = true;
-                client.startSendDataTask();
-            } else {
-                System.out.println("서버와의 연결이 불안정, 재접속 시도 중...");
+        while (!isStop) {
+            if (!isOn) {
+                int ret = client.connectSocket(portNumber);
+                System.out.println(ret);
+                if (ret > 0) {
+                    isOn = true;
+                    System.out.println("서버로의 데이터 전송을 시작합니다.");
+                    client.startSendDataTask();
+                } else {
+                    if (ret < 0) {
+                        System.out.println("해당포트의 서버가 닫혀있습니다, 재접속을 시도합니다.");
+                    } else {
+                        System.out.println("기타 다른 오류가 발생, 내용확인요함");
+                    }
+                }
             }
             try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.sleep(500);
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
             }
         }
-        System.out.println("프로그램을 종료합니다.");
         client.closeSocket();
+        isOn = false;
     }
 }
 
