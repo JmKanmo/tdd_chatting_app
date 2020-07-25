@@ -49,7 +49,7 @@ public class SendDataTaskTest {
     }
 
     @Test
-    public void sendDataTest() throws IOException, InterruptedException {
+    public void testSendData() throws IOException, InterruptedException {
         startServer();
         connectClient();
         connectClient();

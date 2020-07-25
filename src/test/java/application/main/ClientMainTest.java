@@ -8,7 +8,7 @@ import static org.testng.Assert.*;
 
 public class ClientMainTest {
     @Test
-    public void clientMainTest() {
+    public void testClientMain() {
 
     }
 }

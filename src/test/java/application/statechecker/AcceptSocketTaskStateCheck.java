@@ -36,8 +36,8 @@ public class AcceptSocketTaskStateCheck extends Thread {
         }
     }
 
-    @Ignore
-    public void test() {
+    @Test
+    public void testAcceptSocketTaskStateCheck() {
         //default test
     }
 }

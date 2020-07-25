@@ -95,7 +95,7 @@ public class ReceiveDataTaskTest {
     }
 
     @Test(enabled = false)
-    public void connectAndStopTest() throws InterruptedException {
+    public void testConnectAndStop() throws InterruptedException {
         startServer();
 
         for (String msg : msgList) {
@@ -118,7 +118,7 @@ public class ReceiveDataTaskTest {
 
 
     @Test(enabled = true)
-    public void receiveDataTaskTest() {
+    public void testReceiveDataTask() {
         startServer();
 
         for (String msg : msgList) {

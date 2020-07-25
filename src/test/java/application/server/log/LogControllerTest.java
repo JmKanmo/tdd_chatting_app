@@ -20,7 +20,7 @@ import java.util.logging.SimpleFormatter;
 
 public class LogControllerTest {
     @Test
-    public static void loggingTest() throws SecurityException, IOException {
+    public static void testLogControllerTest() throws SecurityException, IOException {
         String msg = "안녕하세요 반갑습니다!!";
         LogController.getInstance().logging(msg);
         List<String> lines = Files

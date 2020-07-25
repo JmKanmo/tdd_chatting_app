@@ -44,7 +44,7 @@ public class PacketDataTaskTest {
     }
 
     @Test
-    public void totalTest() {
+    public void testTotal() {
         startServer();
         connectClient();
 

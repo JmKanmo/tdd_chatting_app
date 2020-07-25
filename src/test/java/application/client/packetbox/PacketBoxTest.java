@@ -58,7 +58,7 @@ public class PacketBoxTest {
     }
 
     @Test
-    public void totalTest() {
+    public void testPacketBoxTest () {
         startServer();
         connectClient();
 

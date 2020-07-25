@@ -43,7 +43,7 @@ public class AcceptSocketTaskTest {
     }
 
     @Test
-    public void runTest() throws IOException, InterruptedException {
+    public void testAcceptSocketTaskTest() throws IOException, InterruptedException {
         connectServer();
         connectClient();
         connectClient();

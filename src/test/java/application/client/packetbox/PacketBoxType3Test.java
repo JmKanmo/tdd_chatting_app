@@ -50,7 +50,7 @@ public class PacketBoxType3Test {
     }
 
     @Test
-    public void totalTest() throws Exception {
+    public void testPacketBoxType3Test() throws Exception {
         startServer();
         connectClient();
 

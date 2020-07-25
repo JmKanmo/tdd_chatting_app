@@ -12,7 +12,7 @@ public class ClientTest {
     private Server server;
 
     @Test
-    public void clientTest(){
+    public void testClient(){
         server = new Server();
         server.startServer(5010);
         client = new Client();

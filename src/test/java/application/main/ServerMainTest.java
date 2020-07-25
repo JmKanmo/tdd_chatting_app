@@ -6,7 +6,7 @@ import static org.testng.Assert.*;
 
 public class ServerMainTest {
     @Test
-    public void serverMainTest() {
+    public void testServerMain() {
 
     }
 }
