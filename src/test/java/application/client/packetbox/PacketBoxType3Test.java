@@ -16,12 +16,12 @@ public class PacketBoxType3Test {
 
     public void connectClient() {
         client = new Client();
-        client.connectSocket(5001);
+        client.connectSocket(5004);
     }
 
     public void startServer() {
         server = new Server();
-        server.startServer(5001);
+        server.startServer(5004);
     }
 
     public void closeClient() {

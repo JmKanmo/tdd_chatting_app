@@ -5,6 +5,7 @@ import application.server.Server;
 import org.testng.annotations.Test;
 
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Map;
 import java.util.Objects;
 
@@ -16,12 +17,12 @@ public class PacketBoxType2Test {
 
     public void connectClient() {
         client = new Client();
-        client.connectSocket(5001);
+        client.connectSocket(5003);
     }
 
     public void startServer() {
         server = new Server();
-        server.startServer(5001);
+        server.startServer(5003);
     }
 
     public void closeClient() {
@@ -41,8 +42,12 @@ public class PacketBoxType2Test {
 
         assertEquals(Objects.equals(socket.getLocalPort(), dataMap.get("localPortNumber")), true);
         assertEquals(Objects.equals(socket.getPort(), dataMap.get("destPortNumber")), true);
-        assertEquals(Objects.equals(socket.getLocalAddress().getHostName(), dataMap.get("hostName")), true);
-        assertEquals(Objects.equals(socket.getLocalAddress().getHostAddress(), dataMap.get("hostIP")), true);
+        try {
+            assertEquals(Objects.equals(socket.getLocalAddress().getLocalHost().getHostName(), dataMap.get("hostName")), true);
+            assertEquals(Objects.equals(socket.getLocalAddress().getHostAddress(), dataMap.get("hostIP")), true);
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
         assertNotEquals(packetBox.getRandomNumber(), 0);
         assertNotNull(packetBox.getBinaryString());
         int randomNumber = packetBox.getRandomNumber();

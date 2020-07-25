@@ -19,7 +19,7 @@ public class AcceptSocketTaskTest {
 
     void connectServer() throws IOException {
         server = new Server();
-        server.startServer(5001);
+        server.startServer(5008);
         server.startAcceptTask();
         thread = new AcceptSocketTaskStateCheck(server.getAcceptSocketTask());
         thread.start();
@@ -28,7 +28,7 @@ public class AcceptSocketTaskTest {
     void connectClient() {
         Client client = new Client();
         clientList.add(client);
-        client.connectSocket(5001);
+        client.connectSocket(5008);
     }
 
     void closeClient() {
@@ -47,10 +47,10 @@ public class AcceptSocketTaskTest {
         connectServer();
         connectClient();
         connectClient();
-        Thread.sleep(6000);
+        Thread.sleep(1000);
         closeClient();
         closeServer();
-        Thread.sleep(6000);
+        Thread.sleep(1000);
 
         // closeServer -> run method throw new IOException 발생 -> stopServer 호출여부 확인
         assertEquals(server.isClosed(), true);

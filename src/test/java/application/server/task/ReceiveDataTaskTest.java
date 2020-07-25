@@ -22,19 +22,19 @@ public class ReceiveDataTaskTest {
     void connectClient() {
         Client client = new Client();
         clientList.add(client);
-        client.connectSocket(5001);
+        client.connectSocket(5009);
     }
 
     void connectClient(String msg) {
         Client client = new Client();
         clientList.add(client);
-        client.connectSocket(5001);
+        client.connectSocket(5009);
         sendDataClientToServer(clientList.size() - 1, msg);
     }
 
     void startServer() {
         server = new Server();
-        server.startServer(5001);
+        server.startServer(5009);
         server.startAcceptTask();
         stateCheckThread = new AcceptSocketTaskStateCheck(server.getAcceptSocketTask());
         stateCheckThread.start();
@@ -132,7 +132,7 @@ public class ReceiveDataTaskTest {
         }
 
         try {
-            Thread.sleep(2500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -141,7 +141,7 @@ public class ReceiveDataTaskTest {
         closeClient();
 
         try {
-            Thread.sleep(2500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

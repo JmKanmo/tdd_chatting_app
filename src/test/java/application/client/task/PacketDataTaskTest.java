@@ -15,12 +15,12 @@ public class PacketDataTaskTest {
 
     public void connectClient() {
         client = new Client();
-        client.connectSocket(5001);
+        client.connectSocket(5005);
     }
 
     public void startServer() {
         server = new Server();
-        server.startServer(5001);
+        server.startServer(5005);
     }
 
     public void closeClient() {
@@ -61,7 +61,7 @@ public class PacketDataTaskTest {
 //        simulationTest();
 
         try {
-            Thread.sleep(6000);
+            Thread.sleep(1000);
         } catch (InterruptedException interruptedException) {
             interruptedException.printStackTrace();
         }

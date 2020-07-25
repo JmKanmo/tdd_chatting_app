@@ -1,6 +1,8 @@
 package application.statechecker;
 
 import application.server.task.AcceptSocketTask;
+import org.testng.annotations.Ignore;
+import org.testng.annotations.Test;
 
 import java.net.Socket;
 import java.util.List;
@@ -32,5 +34,10 @@ public class AcceptSocketTaskStateCheck extends Thread {
                 interruptedException.printStackTrace();
             }
         }
+    }
+
+    @Ignore
+    public void test() {
+        //default test
     }
 }

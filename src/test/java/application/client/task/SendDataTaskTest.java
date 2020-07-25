@@ -22,12 +22,12 @@ public class SendDataTaskTest {
     public void connectClient() {
         Client client = new Client();
         clientList.add(client);
-        client.connectSocket(5001);
+        client.connectSocket(5006);
     }
 
     public void startServer() {
         server = new Server();
-        server.startServer(5001);
+        server.startServer(5006);
         server.startAcceptTask();
         thread = new AcceptSocketTaskStateCheck(server.getAcceptSocketTask());
         thread.start();
@@ -71,7 +71,7 @@ public class SendDataTaskTest {
             sendDataTaskTest(i);
         }
 
-        Thread.sleep(2000);
+        Thread.sleep(1000);
 
         List<String> lines = Files.readAllLines(Paths.get("D:\\tdd_chatting_app\\src\\main\\java\\application\\server\\log\\server.log"));
         String lastLine = lines.get(lines.size() - 1).split(":")[1].trim();
@@ -81,7 +81,7 @@ public class SendDataTaskTest {
         closeClientSocket();
         stopServer();
 
-        Thread.sleep(3500);
+        Thread.sleep(1000);
         assertEquals(server.isClosed(), true);
 
         for (Client client : clientList) {

@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 public class ServerTest extends Mockito {
     private Server server;
 
-    @Test(priority = 4)
+    @Test(priority = 2)
     public void stopServerTest() throws IOException {
         server.stopServer();
         assertEquals(server.getExecutorService().isShutdown(), true);
@@ -19,7 +19,7 @@ public class ServerTest extends Mockito {
     @Test(priority = 1)
     public void startServerTest() throws Exception {
         server = new Server();
-        server.startServer(5001);
+        server.startServer(5007);
         assertEquals(server.isBound(), true);
     }
 }

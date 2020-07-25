@@ -1,44 +1,144 @@
-﻿7월 24, 2020 2:31:37 오후 application.server.log.LogController logging
+﻿7월 25, 2020 11:15:35 오전 application.server.log.LogController logging
+정보: �뿊�뀍�엯�땲�떎
+7월 25, 2020 11:15:35 오전 application.server.log.LogController logging
+정보: MFJ�뜲紐ы�
+7월 25, 2020 11:15:35 오전 application.server.log.LogController logging
+정보: 移섑궓�씠 癒밴퀬�떢�뼱�슂
+7월 25, 2020 11:15:35 오전 application.server.log.LogController logging
+정보: �뿬湲곕뒗�뼱�뵒? �굹�뒗 �늻援�?
+7월 25, 2020 11:15:35 오전 application.server.log.LogController logging
+정보: 肄붾뵫�씠 �옱諛뚯뒿�땲�떎.
+7월 25, 2020 11:16:23 오전 application.server.log.LogController logging
+정보: �뿬湲곕뒗�뼱�뵒? �굹�뒗 �늻援�?
+7월 25, 2020 11:16:23 오전 application.server.log.LogController logging
+정보: MFJ�뜲紐ы�
+7월 25, 2020 11:16:23 오전 application.server.log.LogController logging
+정보: �뿊�뀍�엯�땲�떎
+7월 25, 2020 11:16:23 오전 application.server.log.LogController logging
+정보: 移섑궓�씠 癒밴퀬�떢�뼱�슂
+7월 25, 2020 11:16:23 오전 application.server.log.LogController logging
+정보: 肄붾뵫�씠 �옱諛뚯뒿�땲�떎.
+7월 25, 2020 11:17:05 오전 application.server.log.LogController logging
+정보: PacketBoxType3:[localPortNumber:52441, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, url:https://www.naver.com/, headerInfo:[{Transfer-Encoding=[chunked], null=[HTTP/1.1 200 OK], Server=[NWS], Connection=[keep-alive], urlCon.getContent=sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@82ea68c, Pragma=[no-cache], P3P=[CP="CAO DSP CURa ADMa TAIa PSAa OUR LAW STP PHY ONL UNI PUR FIN COM NAV INT DEM STA PRE"], Date=[Sat, 25 Jul 2020 02:17:08 GMT], Referrer-Policy=[unsafe-url], X-Frame-Options=[DENY], Strict-Transport-Security=[max-age=63072000; includeSubdomains], urlCon.getContentEncoding=null, Cache-Control=[no-cache, no-store, must-revalidate], urlCon.getContentType=text/html; charset=UTF-8, Set-Cookie=[PM_CK_loc=609c724a499fe8b12725534b2fe929f9e938a17edb17a3ce994ba400189c512a; Expires=Sun, 26 Jul 2020 02:17:08 GMT; Path=/; HttpOnly], X-XSS-Protection=[1; mode=block], Content-Type=[text/html; charset=UTF-8]}]]
+7월 25, 2020 11:17:05 오전 application.server.log.LogController logging
+정보: PacketBoxType3:[localPortNumber:52442, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, url:https://www.facebook.com/, headerInfo:[{Transfer-Encoding=[chunked], null=[HTTP/1.1 200 OK], Alt-Svc=[h3-29=":443"; ma=3600,h3-27=":443"; ma=3600], X-Content-Type-Options=[nosniff], Connection=[keep-alive], urlCon.getContent=sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@4b213651, Pragma=[no-cache], Date=[Sat, 25 Jul 2020 02:17:08 GMT], X-Frame-Options=[DENY], Strict-Transport-Security=[max-age=15552000; preload], urlCon.getContentEncoding=null, Cache-Control=[private, no-cache, no-store, must-revalidate], urlCon.getContentType=text/html; charset="utf-8", Vary=[Accept-Encoding], Set-Cookie=[sb=JJYbX8Y53mUadDwSuAYQM9ea; expires=Mon, 25-Jul-2022 02:17:08 GMT; Max-Age=63072000; path=/; domain=.facebook.com; secure; httponly, fr=10maDqw8QBgFSgCvP..BfG5Yk.KU.AAA.0.0.BfG5Yk.AWVs7Cbo; expires=Fri, 23-Oct-2020 02:17:07 GMT; Max-Age=7775999; path=/; domain=.facebook.com; secure; httponly], Expires=[
+7월 25, 2020 11:17:05 오전 application.server.log.LogController logging
+정보: PacketBoxType1:[localPortNumber:52443, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1,uuid:0a0637118dbf42eebcb0a1658a6c264b]
+7월 25, 2020 11:17:05 오전 application.server.log.LogController logging
+정보: Sat, 01 Jan 2000 00:00:00 GMT], X-FB-Debug=[SU62p5GoD6Xei86qX4LgSMftX3+pE6MCUCwS4oKCR6W9pqoLVkewM0e47aeqyzd/HpglGlGfcnNvvB5d+3g/ZA==], X-XSS-Protection=[0], Content-Type=[text/html; charset="utf-8"]}]]
+7월 25, 2020 11:17:44 오전 application.server.log.LogController logging
+정보: 안녕하세요 반갑습니다!!
+7월 25, 2020 11:20:44 오전 application.server.log.LogController logging
+정보: �뿬湲곕뒗�뼱�뵒? �굹�뒗 �늻援�?
+7월 25, 2020 11:20:44 오전 application.server.log.LogController logging
+정보: 肄붾뵫�씠 �옱諛뚯뒿�땲�떎.
+7월 25, 2020 11:20:44 오전 application.server.log.LogController logging
+정보: �뿊�뀍�엯�땲�떎
+7월 25, 2020 11:20:44 오전 application.server.log.LogController logging
+정보: MFJ�뜲紐ы�
+7월 25, 2020 11:20:44 오전 application.server.log.LogController logging
+정보: 移섑궓�씠 癒밴퀬�떢�뼱�슂
+7월 25, 2020 11:21:16 오전 application.server.log.LogController logging
+정보: 肄붾뵫�씠 �옱諛뚯뒿�땲�떎.
+7월 25, 2020 11:21:16 오전 application.server.log.LogController logging
+정보: 移섑궓�씠 癒밴퀬�떢�뼱�슂
+7월 25, 2020 11:21:16 오전 application.server.log.LogController logging
+정보: �뿬湲곕뒗�뼱�뵒? �굹�뒗 �늻援�?
+7월 25, 2020 11:21:16 오전 application.server.log.LogController logging
+정보: MFJ�뜲紐ы�
+7월 25, 2020 11:21:16 오전 application.server.log.LogController logging
+정보: �뿊�뀍�엯�땲�떎
+7월 25, 2020 11:22:56 오전 application.server.log.LogController logging
+정보: 안녕하세요 반갑습니다!!
+7월 25, 2020 11:23:07 오전 application.server.log.LogController logging
+정보: �뿊�뀍�엯�땲�떎
+7월 25, 2020 11:23:07 오전 application.server.log.LogController logging
+정보: �뿬湲곕뒗�뼱�뵒? �굹�뒗 �늻援�?
+7월 25, 2020 11:23:07 오전 application.server.log.LogController logging
+정보: 肄붾뵫�씠 �옱諛뚯뒿�땲�떎.
+7월 25, 2020 11:23:07 오전 application.server.log.LogController logging
+정보: MFJ�뜲紐ы�
+7월 25, 2020 11:23:07 오전 application.server.log.LogController logging
+정보: 移섑궓�씠 癒밴퀬�떢�뼱�슂
+7월 25, 2020 11:23:10 오전 application.server.log.LogController logging
+정보: PacketBoxType3:[localPortNumber:52551, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, url:https://www.acmicpc.net/, headerInfo:[{Transfer-Encoding=[chunked], null=[HTTP/1.1 200 OK], Server=[Apache/2.4.29 (Ubuntu)], X-Content-Type-Options=[nosniff], Connection=[keep-alive], urlCon.getContent=sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@39a8312f, Pragma=[no-cache], Date=[Sat, 25 Jul 2020 02:23:13 GMT], Referrer-Policy=[strict-origin], X-Frame-Options=[SAMEORIGIN], urlCon.getContentEncoding=null, Cache-Control=[no-store, no-cache, must-revalidate], urlCon.getContentType=text/html; charset=UTF-8, Vary=[Accept-Encoding], Set-Cookie=[OnlineJudge=u1s50jt8gn2fedmi0kfv4jqnmc; path=/; domain=.acmicpc.net; secure; HttpOnly], Expires=[Thu, 19 Nov 1981 08:52:00 GMT], X-XSS-Protection=[1; mode=block], Content-Type=[text/html; charset=UTF-8]}]]
+7월 25, 2020 11:23:10 오전 application.server.log.LogController logging
+정보: PacketBoxType2:[localPortNumber:52552, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, randomNumber:151, binaryNumber:10010111]
+7월 25, 2020 11:23:10 오전 application.server.log.LogController logging
+정보: PacketBoxType3:[localPortNumber:52553, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, url:https://www.ex-em.com/, headerInfo:[{Transfer-Encoding=[chunked], null=[HTTP/1.1 200], Connection=[keep-alive], urlCon.getContent=sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@31000e60, X-Xm-ElapseTime=[0], X-Xm-Tid=[7028809958564298853], Date=[Sat, 25 Jul 2020 02:23:13 GMT], urlCon.getContentEncoding=null, Cache-Control=[max-age=172800], urlCon.getContentType=text/html;charset=UTF-8, Vary=[User-Agent,Accept-Encoding], Set-Cookie=[JSESSIONID=DD8BAD93B41F6C57D36AD39ED7B5BDB3; Path=/; HttpOnly, _xm_tid_1_=7028809958564298853; Max-Age=180; Expires=Sat, 25-Jul-2020 02:31:51 GMT; Path=/, _xm_webid_1_=-2050865349; Max-Age=7776000; Expires=Fri, 23-Oct-2020 02:28:51 GMT; Path=/], Expires=[Mon, 27 Jul 2020 02:28:51 GMT], Content-Language=[ko-KR], Content-Type=[text/html;charset=UTF-8]}]]
+7월 25, 2020 11:41:06 오전 application.server.log.LogController logging
+정보: 안녕하세요 반갑습니다!!
+7월 25, 2020 11:41:17 오전 application.server.log.LogController logging
 정보: 엑셈입니다
-7월 24, 2020 2:31:37 오후 application.server.log.LogController logging
-정보: 여기는어디? 나는 누구?
-7월 24, 2020 2:31:37 오후 application.server.log.LogController logging
-정보: MFJ데몬팀
-7월 24, 2020 2:31:37 오후 application.server.log.LogController logging
-정보: 치킨이 먹고싶어요
-7월 24, 2020 2:31:37 오후 application.server.log.LogController logging
+7월 25, 2020 11:41:17 오전 application.server.log.LogController logging
 정보: 코딩이 재밌습니다.
-7월 24, 2020 2:32:13 오후 application.server.log.LogController logging
-정보: 여기는어디? 나는 누구?
-7월 24, 2020 2:32:13 오후 application.server.log.LogController logging
+7월 25, 2020 11:41:17 오전 application.server.log.LogController logging
 정보: MFJ데몬팀
-7월 24, 2020 2:32:13 오후 application.server.log.LogController logging
+7월 25, 2020 11:41:17 오전 application.server.log.LogController logging
+정보: 치킨이 먹고싶어요
+7월 25, 2020 11:41:17 오전 application.server.log.LogController logging
+정보: 여기는어디? 나는 누구?
+7월 25, 2020 11:41:20 오전 application.server.log.LogController logging
+정보: PacketBoxType2:[localPortNumber:53315, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, randomNumber:87, binaryNumber:1010111]
+7월 25, 2020 11:41:20 오전 application.server.log.LogController logging
+정보: PacketBoxType3:[localPortNumber:53316, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, url:https://www.ex-em.com/, headerInfo:[{Transfer-Encoding=[chunked], null=[HTTP/1.1 200], Connection=[keep-alive], urlCon.getContent=sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@7d64e326, X-Xm-ElapseTime=[0], X-Xm-Tid=[7028811170995372133], Date=[Sat, 25 Jul 2020 02:41:23 GMT], urlCon.getContentEncoding=null, Cache-Control=[max-age=172800], urlCon.getContentType=text/html;charset=UTF-8, Vary=[User-Agent,Accept-Encoding], Set-Cookie=[JSESSIONID=036ABA6FD9EE2CDB57869060BFAB4E7D; Path=/; HttpOnly, _xm_tid_1_=7028811170995372133; Max-Age=180; Expires=Sat, 25-Jul-2020 02:50:01 GMT; Path=/, _xm_webid_1_=-216284817; Max-Age=7776000; Expires=Fri, 23-Oct-2020 02:47:01 GMT; Path=/], Expires=[Mon, 27 Jul 2020 02:47:01 GMT], Content-Language=[ko-KR], Content-Type=[text/html;charset=UTF-8]}]]
+7월 25, 2020 11:41:20 오전 application.server.log.LogController logging
+정보: PacketBoxType2:[localPortNumber:53317, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, randomNumber:982, binaryNumber:1111010110]
+7월 25, 2020 11:43:13 오전 application.server.log.LogController logging
+정보: 안녕하세요 반갑습니다!!
+7월 25, 2020 11:43:24 오전 application.server.log.LogController logging
 정보: 엑셈입니다
-7월 24, 2020 2:32:13 오후 application.server.log.LogController logging
-정보: 코딩이 재밌습니다.
-7월 24, 2020 2:32:13 오후 application.server.log.LogController logging
-정보: 치킨이 먹고싶어요
-7월 24, 2020 6:07:21 오후 application.server.log.LogController logging
-정보: 안녕하세요 반갑습니다!!
-7월 24, 2020 6:08:28 오후 application.server.log.LogController logging
-정보: 안녕하세요 반갑습니다!!
-7월 24, 2020 6:14:15 오후 application.server.log.LogController logging
-정보: 안녕하세요 반갑습니다!!
-7월 24, 2020 6:16:01 오후 application.server.log.LogController logging
-정보: 안녕하세요 반갑습니다!!
-7월 24, 2020 6:16:54 오후 application.server.log.LogController logging
-정보: 코딩이 재밌습니다.
-7월 24, 2020 6:16:54 오후 application.server.log.LogController logging
+7월 25, 2020 11:43:24 오전 application.server.log.LogController logging
 정보: 여기는어디? 나는 누구?
-7월 24, 2020 6:16:54 오후 application.server.log.LogController logging
+7월 25, 2020 11:43:24 오전 application.server.log.LogController logging
+정보: 코딩이 재밌습니다.
+7월 25, 2020 11:43:24 오전 application.server.log.LogController logging
 정보: MFJ데몬팀
-7월 24, 2020 6:16:54 오후 application.server.log.LogController logging
-정보: 엑셈입니다
-7월 24, 2020 6:16:54 오후 application.server.log.LogController logging
+7월 25, 2020 11:43:24 오전 application.server.log.LogController logging
 정보: 치킨이 먹고싶어요
-7월 24, 2020 6:17:20 오후 application.server.log.LogController logging
+7월 25, 2020 11:43:26 오전 application.server.log.LogController logging
+정보: PacketBoxType2:[localPortNumber:53355, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, randomNumber:955, binaryNumber:1110111011]
+7월 25, 2020 11:43:26 오전 application.server.log.LogController logging
+정보: PacketBoxType1:[localPortNumber:53356, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1,uuid:4df80a78bd4344f6a093b7466316bc0d]
+7월 25, 2020 11:43:26 오전 application.server.log.LogController logging
+정보: PacketBoxType2:[localPortNumber:53357, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, randomNumber:499, binaryNumber:111110011]
+7월 25, 2020 11:44:49 오전 application.server.log.LogController logging
 정보: 안녕하세요 반갑습니다!!
-7월 24, 2020 6:18:28 오후 application.server.log.LogController logging
+7월 25, 2020 11:45:00 오전 application.server.log.LogController logging
+정보: 엑셈입니다
+7월 25, 2020 11:45:00 오전 application.server.log.LogController logging
+정보: 여기는어디? 나는 누구?
+7월 25, 2020 11:45:00 오전 application.server.log.LogController logging
+정보: 코딩이 재밌습니다.
+7월 25, 2020 11:45:00 오전 application.server.log.LogController logging
+정보: MFJ데몬팀
+7월 25, 2020 11:45:00 오전 application.server.log.LogController logging
+정보: 치킨이 먹고싶어요
+7월 25, 2020 11:45:02 오전 application.server.log.LogController logging
+정보: PacketBoxType3:[localPortNumber:53395, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, url:https://www.facebook.com/, headerInfo:[{Transfer-Encoding=[chunked], null=[HTTP/1.1 200 OK], Alt-Svc=[h3-29=":443"; ma=3600,h3-27=":443"; ma=3600], X-Content-Type-Options=[nosniff], Connection=[keep-alive], urlCon.getContent=sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@2d96543c, Pragma=[no-cache], Date=[Sat, 25 Jul 2020 02:45:05 GMT], X-Frame-Options=[DENY], Strict-Transport-Security=[max-age=15552000; preload], urlCon.getContentEncoding=null, Cache-Control=[private, no-cache, no-store, must-revalidate], urlCon.getContentType=text/html; charset="utf-8", Vary=[Accept-Encoding], Set-Cookie=[sb=sZwbXyWh2wCBjBXys24ew8xo; expires=Mon, 25-Jul-2022 02:45:05 GMT; Max-Age=63072000; path=/; domain=.facebook.com; secure; httponly, fr=1tRJj78nPgVPYr61e..BfG5yx.dS.AAA.0.0.BfG5yx.AWV08GGj; expires=Fri, 23-Oct-2020 02:45:04 GMT; Max-Age=7775999; path=/; domain=.facebook.com; secure; httponly], Expires=[
+7월 25, 2020 11:45:03 오전 application.server.log.LogController logging
+정보: PacketBoxType3:[localPortNumber:53396, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, url:https://www.naver.com/, headerInfo:[{Transfer-Encoding=[chunked], null=[HTTP/1.1 200 OK], Server=[NWS], Connection=[keep-alive], urlCon.getContent=sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@6e35bc3d, Pragma=[no-cache], P3P=[CP="CAO DSP CURa ADMa TAIa PSAa OUR LAW STP PHY ONL UNI PUR FIN COM NAV INT DEM STA PRE"], Date=[Sat, 25 Jul 2020 02:45:06 GMT], Referrer-Policy=[unsafe-url], X-Frame-Options=[DENY], Strict-Transport-Security=[max-age=63072000; includeSubdomains], urlCon.getContentEncoding=null, Cache-Control=[no-cache, no-store, must-revalidate], urlCon.getContentType=text/html; charset=UTF-8, Set-Cookie=[PM_CK_loc=609c724a499fe8b12725534b2fe929f9e938a17edb17a3ce994ba400189c512a; Expires=Sun, 26 Jul 2020 02:45:06 GMT; Path=/; HttpOnly], X-XSS-Protection=[1; mode=block], Content-Type=[text/html; charset=UTF-8]}]]
+7월 25, 2020 11:45:03 오전 application.server.log.LogController logging
+정보: PacketBoxType1:[localPortNumber:53397, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1,uuid:a707a8ba9f754a8587eb07731cf592ed]
+7월 25, 2020 11:45:03 오전 application.server.log.LogController logging
+정보: Sat, 01 Jan 2000 00:00:00 GMT], X-FB-Debug=[fYmv8qKPnk8aQMINZOUqQiUbEiJrACWep0SVwrdbZQoC1TQdYjQ8fTbM/dcKdWe7Ljp+TX9leYEWmXUkXl7RbQ==], X-XSS-Protection=[0], Content-Type=[text/html; charset="utf-8"]}]]
+7월 25, 2020 11:49:59 오전 application.server.log.LogController logging
 정보: 안녕하세요 반갑습니다!!
-7월 24, 2020 6:19:51 오후 application.server.log.LogController logging
-정보: 안녕하세요 반갑습니다!!
+7월 25, 2020 11:50:10 오전 application.server.log.LogController logging
+정보: 엑셈입니다
+7월 25, 2020 11:50:10 오전 application.server.log.LogController logging
+정보: MFJ데몬팀
+7월 25, 2020 11:50:10 오전 application.server.log.LogController logging
+정보: 코딩이 재밌습니다.
+7월 25, 2020 11:50:10 오전 application.server.log.LogController logging
+정보: 여기는어디? 나는 누구?
+7월 25, 2020 11:50:10 오전 application.server.log.LogController logging
+정보: 치킨이 먹고싶어요
+7월 25, 2020 11:50:13 오전 application.server.log.LogController logging
+정보: PacketBoxType3:[localPortNumber:53503, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, url:https://www.acmicpc.net/, headerInfo:[{Transfer-Encoding=[chunked], null=[HTTP/1.1 200 OK], Server=[Apache/2.4.29 (Ubuntu)], X-Content-Type-Options=[nosniff], Connection=[keep-alive], urlCon.getContent=sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@2631f68c, Pragma=[no-cache], Date=[Sat, 25 Jul 2020 02:50:16 GMT], Referrer-Policy=[strict-origin], X-Frame-Options=[SAMEORIGIN], urlCon.getContentEncoding=null, Cache-Control=[no-store, no-cache, must-revalidate], urlCon.getContentType=text/html; charset=UTF-8, Vary=[Accept-Encoding], Set-Cookie=[OnlineJudge=v453p5ktii4u84uaudr117sajv; path=/; domain=.acmicpc.net; secure; HttpOnly], Expires=[Thu, 19 Nov 1981 08:52:00 GMT], X-XSS-Protection=[1; mode=block], Content-Type=[text/html; charset=UTF-8]}]]
+7월 25, 2020 11:50:13 오전 application.server.log.LogController logging
+정보: PacketBoxType3:[localPortNumber:53504, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, url:https://www.google.com/, headerInfo:[{Transfer-Encoding=[chunked], null=[HTTP/1.1 200 OK], Alt-Svc=[h3-29=":443"; ma=2592000,h3-27=":443"; ma=2592000,h3-T050=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"], Server=[gws], urlCon.getContent=sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@4f9a2c08, P3P=[CP="This is not a P3P policy! See g.co/p3phelp for more info."], Date=[Sat, 25 Jul 2020 02:50:16 GMT], Accept-Ranges=[none], X-Frame-Options=[SAMEORIGIN], urlCon.getContentEncoding=null, Cache-Control=[private, max-age=0], urlCon.getContentType=text/html; charset=ISO-8859-1, Vary=[Accept-Encoding], Set-Cookie=[NID=204=Xb1Oz8kwmiM_42GVnbuq8BVNvc8sYy9I1R6svc0dxfFqCOqmpVvoq9b79IhFeo7eptcK6hrGGFcLrD64GS5b_VW_G9wP-q74-QS_1jNpMuHvHGVQOF9zRdf56e6dUhhA13DWsLF6gkPyHYhsNXwx_aZUyaPUjbelIRVycjcLmbk; expires=Sun, 24-Jan-2
+7월 25, 2020 11:50:13 오전 application.server.log.LogController logging
+정보: PacketBoxType3:[localPortNumber:53505, destPortNumber:5006, hostName:DESKTOP-50NU90J, hostIP:127.0.0.1, url:https://www.ex-em.com/, headerInfo:[{Transfer-Encoding=[chunked], null=[HTTP/1.1 200], Connection=[keep-alive], urlCon.getContent=sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@47f4e407, X-Xm-ElapseTime=[0], X-Xm-Tid=[7028811730025513061], Date=[Sat, 25 Jul 2020 02:50:16 GMT], urlCon.getContentEncoding=null, Cache-Control=[max-age=172800], urlCon.getContentType=text/html;charset=UTF-8, Vary=[User-Agent,Accept-Encoding], Set-Cookie=[JSESSIONID=28425829C57D235A06EFE67323937FD7; Path=/; HttpOnly, _xm_tid_1_=7028811730025513061; Max-Age=180; Expires=Sat, 25-Jul-2020 02:58:54 GMT; Path=/, _xm_webid_1_=1215133410; Max-Age=7776000; Expires=Fri, 23-Oct-2020 02:55:54 GMT; Path=/], Expires=[Mon, 27 Jul 2020 02:55:54 GMT], Content-Language=[ko-KR], Content-Type=[text/html;charset=UTF-8]}]]
+7월 25, 2020 11:50:13 오전 application.server.log.LogController logging
+정보: 021 02:50:16 GMT; path=/; domain=.google.com; HttpOnly, 1P_JAR=2020-07-25-02; expires=Mon, 24-Aug-2020 02:50:16 GMT; path=/; domain=.google.com; Secure], Expires=[-1], X-XSS-Protection=[0], Content-Type=[text/html; charset=ISO-8859-1]}]]
